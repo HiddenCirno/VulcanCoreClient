@@ -55,13 +55,13 @@ namespace VulcanCore
             }
             return false;
         }
-        public static Texture2D Target_Killa = VulcanCore_Utils.LoadFromFile("hideoutsprite/Target_Killa.png"); 
-        public static Texture2D Target_Tagilla = VulcanCore_Utils.LoadFromFile("hideoutsprite/Target_Tagilla.png");
-        public static Texture2D Target_Tagilla_Red = VulcanCore_Utils.LoadFromFile("hideoutsprite/Target_Tagilla_Red.png");
-        public static Texture2D Target_Knight = VulcanCore_Utils.LoadFromFile("hideoutsprite/Target_Knight.png");
-        public static Texture2D Target_Rat = VulcanCore_Utils.LoadFromFile("hideoutsprite/Target_Rat.png");
-        public static Texture2D Target_Zryachiy = VulcanCore_Utils.LoadFromFile("hideoutsprite/Target_Zryachiy.png");
-        public static Texture2D Target_Zryachiy_Green = VulcanCore_Utils.LoadFromFile("hideoutsprite/Target_Zryachiy_Green.png"); 
+        public static Texture2D Target_Killa = VulcanCore_Utils.LoadFromFile("vulcan_resource/Target_Killa.png"); 
+        public static Texture2D Target_Tagilla = VulcanCore_Utils.LoadFromFile("vulcan_resource/Target_Tagilla.png");
+        public static Texture2D Target_Tagilla_Red = VulcanCore_Utils.LoadFromFile("vulcan_resource/Target_Tagilla_Red.png");
+        public static Texture2D Target_Knight = VulcanCore_Utils.LoadFromFile("vulcan_resource/Target_Knight.png");
+        public static Texture2D Target_Rat = VulcanCore_Utils.LoadFromFile("vulcan_resource/Target_Rat.png");
+        public static Texture2D Target_Zryachiy = VulcanCore_Utils.LoadFromFile("vulcan_resource/Target_Zryachiy.png");
+        public static Texture2D Target_Zryachiy_Green = VulcanCore_Utils.LoadFromFile("vulcan_resource/Target_Zryachiy_Green.png"); 
         public static Sprite Target_Killa_Icon;
         public static Sprite Target_Tagilla_Icon;
         public static Sprite Target_Tagilla_Red_Icon;

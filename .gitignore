@@ -7,3 +7,4 @@ VulcanCoreClient/obj/Debug/
 *.suo
 *.cache
 *.log
+.vs/

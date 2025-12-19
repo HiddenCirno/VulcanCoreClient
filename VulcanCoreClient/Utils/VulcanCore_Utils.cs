@@ -72,6 +72,10 @@ namespace VulcanCore
         {
             return Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0.5f, 0.5f), tex.width);
         }
+        public static Sprite SimpleCreateSprite(Texture2D tex, float pixelsPerUnit)
+        {
+            return Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0.5f, 0.5f), pixelsPerUnit);
+        }
         public static Texture2D LoadFromFile(string path, int width = 2, int height = 2)
         {
             string pathes = Path.Combine(pluginDir, path);

@@ -45,21 +45,21 @@ namespace VulcanCore
         public static class StoryCustomizationSprite
         {
             // --- 结局01 ---
-            public static Texture2D Story_Ending_01_Floor = VulcanCore_Utils.LoadFromFile("hideoutsprite/Story_Ending_01_Floor.png");
-            public static Texture2D Story_Ending_01_Ceiling = VulcanCore_Utils.LoadFromFile("hideoutsprite/Story_Ending_01_Ceiling.png");
-            public static Texture2D Story_Ending_01_Wall = VulcanCore_Utils.LoadFromFile("hideoutsprite/Story_Ending_01_Wall.png");
+            public static Texture2D Story_Ending_01_Floor = VulcanCore_Utils.LoadFromFile("vulcan_resource/Story_Ending_01_Floor.png");
+            public static Texture2D Story_Ending_01_Ceiling = VulcanCore_Utils.LoadFromFile("vulcan_resource/Story_Ending_01_Ceiling.png");
+            public static Texture2D Story_Ending_01_Wall = VulcanCore_Utils.LoadFromFile("vulcan_resource/Story_Ending_01_Wall.png");
             // --- 结局02 ---
-            public static Texture2D Story_Ending_02_Floor = VulcanCore_Utils.LoadFromFile("hideoutsprite/Story_Ending_02_Floor.png");
-            public static Texture2D Story_Ending_02_Ceiling = VulcanCore_Utils.LoadFromFile("hideoutsprite/Story_Ending_02_Ceiling.png");
-            public static Texture2D Story_Ending_02_Wall = VulcanCore_Utils.LoadFromFile("hideoutsprite/Story_Ending_02_Wall.png");
+            public static Texture2D Story_Ending_02_Floor = VulcanCore_Utils.LoadFromFile("vulcan_resource/Story_Ending_02_Floor.png");
+            public static Texture2D Story_Ending_02_Ceiling = VulcanCore_Utils.LoadFromFile("vulcan_resource/Story_Ending_02_Ceiling.png");
+            public static Texture2D Story_Ending_02_Wall = VulcanCore_Utils.LoadFromFile("vulcan_resource/Story_Ending_02_Wall.png");
             // --- 结局03 ---
-            public static Texture2D Story_Ending_03_Floor = VulcanCore_Utils.LoadFromFile("hideoutsprite/Story_Ending_03_Floor.png");
-            public static Texture2D Story_Ending_03_Ceiling = VulcanCore_Utils.LoadFromFile("hideoutsprite/Story_Ending_03_Ceiling.png");
-            public static Texture2D Story_Ending_03_Wall = VulcanCore_Utils.LoadFromFile("hideoutsprite/Story_Ending_03_Wall.png");
+            public static Texture2D Story_Ending_03_Floor = VulcanCore_Utils.LoadFromFile("vulcan_resource/Story_Ending_03_Floor.png");
+            public static Texture2D Story_Ending_03_Ceiling = VulcanCore_Utils.LoadFromFile("vulcan_resource/Story_Ending_03_Ceiling.png");
+            public static Texture2D Story_Ending_03_Wall = VulcanCore_Utils.LoadFromFile("vulcan_resource/Story_Ending_03_Wall.png");
             // --- 结局04 ---
-            public static Texture2D Story_Ending_04_Floor = VulcanCore_Utils.LoadFromFile("hideoutsprite/Story_Ending_04_Floor.png");
-            public static Texture2D Story_Ending_04_Ceiling = VulcanCore_Utils.LoadFromFile("hideoutsprite/Story_Ending_04_Ceiling.png");
-            public static Texture2D Story_Ending_04_Wall = VulcanCore_Utils.LoadFromFile("hideoutsprite/Story_Ending_04_Wall.png");
+            public static Texture2D Story_Ending_04_Floor = VulcanCore_Utils.LoadFromFile("vulcan_resource/Story_Ending_04_Floor.png");
+            public static Texture2D Story_Ending_04_Ceiling = VulcanCore_Utils.LoadFromFile("vulcan_resource/Story_Ending_04_Ceiling.png");
+            public static Texture2D Story_Ending_04_Wall = VulcanCore_Utils.LoadFromFile("vulcan_resource/Story_Ending_04_Wall.png");
         }
     }
     public class CustomizationSpriteData
