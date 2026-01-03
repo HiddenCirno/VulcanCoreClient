@@ -1,7 +1,7 @@
 ﻿
 global using BuffEffect = GClass3019.GClass3044.GClass3045;
+global using FoodAndDrinkEffect = GClass1444;
 global using ItemManager = GClass3380;
-global using ItemTransactionManager = GClass3408;
 global using ItemTransactionManagerResult = GStruct154<GClass3408>;
 global using LanguageExtend = GClass1522;
 global using ShootingRangeTargetResourceManager = GClass2421;
@@ -9,6 +9,7 @@ global using SkillEffect = GClass1443;
 using BepInEx;
 using BepInEx.Configuration;
 using BepInEx.Logging;
+using EFT.Communications;
 using EFT.UI.DragAndDrop;
 using HarmonyLib;
 using Newtonsoft.Json;
@@ -26,6 +27,10 @@ namespace VulcanCore
     {
         public static string dllPath = Assembly.GetExecutingAssembly().Location;
         public static string pluginDir = Path.GetDirectoryName(dllPath);
+        internal static ConfigEntry<KeyCode> BackupKeyCode { get; set; }
+        //public KeyboardShortcut BackupKey = new KeyboardShortcut(BackupKeyCode.Value, KeyCode.LeftShift, KeyCode.LeftAlt, KeyCode.LeftControl);
+        public KeyboardShortcut _backupKey;
+        public bool _backupKeyLastFrame = false;
         public void Awake()
         {
             AssetBundle myBundle = AssetBundle.LoadFromFile(Path.Combine(pluginDir, "vulcan_resource/vulcan_layout.pack"));
@@ -43,7 +48,7 @@ namespace VulcanCore
                         //Console.WriteLine($"Test: {gridView.GridViews}");
                         CacheResourcesPopAbstractClass.Dictionary_0.Add(key, gridView);
                     }
-                    
+
                 }
             }
             var upgradeslot = VulcanCore_Utils.SimpleCreateSprite(VulcanCore_Utils.LoadFromFile("vulcan_resource/upgrade_slot.png", 1, 1), 100);
@@ -68,6 +73,14 @@ namespace VulcanCore
             harmony.PatchAll();
             returnClientConnect("11.13.2001-11.23.2019");
             callServerWhenGameStart("11.13.2001-11.23.2019");
+            BackupKeyCode = Config.Bind<KeyCode>(
+                "备份设置",
+                "备份快捷键",
+                KeyCode.Insert,
+                "同时按下左Ctrl, 左Shift, 左Alt和该按键触发备份"
+            );
+            BackupKeyCode.SettingChanged += (a, b) => SetBackupKey();
+            SetBackupKey();
             LoadAllSprites();
             VulcanCore_ShootingRangeTarget_Patch.Target_Killa_Icon =
                 VulcanCore_Utils.SimpleCreateSprite(
@@ -99,9 +112,32 @@ namespace VulcanCore
             VulcanCore_GetSprite_Patch.Custom_01_Floor = VulcanCore_Utils.SimpleCreateSprite(VulcanCore_Utils.LoadFromFile("vulcan_resource/Custom_01_Floor.png"));
             Debug.Log("VulcanCore: Now Awake.");
         }
+        public void Update()
+        {
+            if (_backupKey.IsPressed() && !_backupKeyLastFrame)
+            {
+                var message = returnBackupInfo("操作不规范, 炸档两行泪, 作者提醒您, 请及时备份存档, 警钟长鸣");
+                //GUIUtility.systemCopyBuffer = _itemID;
+                NotificationManagerClass.DisplayMessageNotification(
+                    message,
+                    ENotificationDurationType.Default,
+                    ENotificationIconType.Default,
+                    null
+                );
+                _backupKeyLastFrame = _backupKey.IsPressed();
+            }
+            if (!_backupKey.IsPressed())
+            {
+                _backupKeyLastFrame = false;
+            }
+        }
         private static string returnClientConnect(string request)
         {
             return RequestHandler.PostJson("/VulcanCoreClient/InitFix", JsonConvert.SerializeObject(new FixRequest(request)));
+        }
+        private static string returnBackupInfo(string request)
+        {
+            return RequestHandler.PostJson("/VulcanCoreClient/CallBackup", JsonConvert.SerializeObject(new BackupRequest(request)));
         }
         private static string callServerWhenGameStart(string request)
         {
@@ -155,12 +191,23 @@ namespace VulcanCore
                     VulcanCore_GetSprite_Patch.StoryCustomizationSprite.Story_Ending_04_Wall);
 
         }
-
+        public void SetBackupKey()
+        {
+            _backupKey = new KeyboardShortcut(BackupKeyCode.Value, KeyCode.LeftShift, KeyCode.LeftAlt, KeyCode.LeftControl);
+        }
         private static bool loaded = false;
     }
     public class FixRequest
     {
         public FixRequest(string request)
+        {
+            this.request = request;
+        }
+        public string request;
+    }
+    public class BackupRequest
+    {
+        public BackupRequest(string request)
         {
             this.request = request;
         }
