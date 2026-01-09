@@ -28,6 +28,7 @@ namespace VulcanCore
         public static string dllPath = Assembly.GetExecutingAssembly().Location;
         public static string pluginDir = Path.GetDirectoryName(dllPath);
         internal static ConfigEntry<KeyCode> BackupKeyCode { get; set; }
+        public static ConfigEntry<bool> SkipContainerCheck { get; private set; }
         //public KeyboardShortcut BackupKey = new KeyboardShortcut(BackupKeyCode.Value, KeyCode.LeftShift, KeyCode.LeftAlt, KeyCode.LeftControl);
         public KeyboardShortcut _backupKey;
         public bool _backupKeyLastFrame = false;
@@ -78,6 +79,12 @@ namespace VulcanCore
                 "备份快捷键",
                 KeyCode.Insert,
                 "同时按下左Ctrl, 左Shift, 左Alt和该按键触发备份"
+            ); 
+            SkipContainerCheck = Config.Bind<bool>(
+                "转生设置", 
+                "允许转生页面放入包含物品的容器", 
+                true, 
+                "启用后将进一步去除转生限制，允许你转移带物品的容器而不是仅允许转移空容器"
             );
             BackupKeyCode.SettingChanged += (a, b) => SetBackupKey();
             SetBackupKey();

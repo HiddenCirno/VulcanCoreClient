@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "D:\\TKFSinglePlayer\\GitRepo\\VulcanCoreClient\\VulcanCoreClient\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{101B809E-B510-4FE8-ADF2-03F3C4766B03}|VulcanCoreClient\\VulcanCoreClient.csproj|d:\\tkfsingleplayer\\gitrepo\\vulcancoreclient\\vulcancoreclient\\vulcancoreclient\\vulcancoreclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{101B809E-B510-4FE8-ADF2-03F3C4766B03}|VulcanCoreClient\\VulcanCoreClient.csproj|solutionrelative:vulcancoreclient\\vulcancoreclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{101B809E-B510-4FE8-ADF2-03F3C4766B03}|VulcanCoreClient\\VulcanCoreClient.csproj|d:\\tkfsingleplayer\\gitrepo\\vulcancoreclient\\vulcancoreclient\\vulcancoreclient\\door_breachsuccessroll_patch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{101B809E-B510-4FE8-ADF2-03F3C4766B03}|VulcanCoreClient\\VulcanCoreClient.csproj|solutionrelative:vulcancoreclient\\door_breachsuccessroll_patch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{101B809E-B510-4FE8-ADF2-03F3C4766B03}|VulcanCoreClient\\VulcanCoreClient.csproj|d:\\tkfsingleplayer\\gitrepo\\vulcancoreclient\\vulcancoreclient\\vulcancoreclient\\patch\\vulcancore_isactivepatch_prestige.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{101B809E-B510-4FE8-ADF2-03F3C4766B03}|VulcanCoreClient\\VulcanCoreClient.csproj|solutionrelative:vulcancoreclient\\patch\\vulcancore_isactivepatch_prestige.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{101B809E-B510-4FE8-ADF2-03F3C4766B03}|VulcanCoreClient\\VulcanCoreClient.csproj|d:\\tkfsingleplayer\\gitrepo\\vulcancoreclient\\vulcancoreclient\\vulcancoreclient\\utils\\vulcancore_utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{101B809E-B510-4FE8-ADF2-03F3C4766B03}|VulcanCoreClient\\VulcanCoreClient.csproj|solutionrelative:vulcancoreclient\\utils\\vulcancore_utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{101B809E-B510-4FE8-ADF2-03F3C4766B03}|VulcanCoreClient\\VulcanCoreClient.csproj|d:\\tkfsingleplayer\\gitrepo\\vulcancoreclient\\vulcancoreclient\\vulcancoreclient\\vulcancoreclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{101B809E-B510-4FE8-ADF2-03F3C4766B03}|VulcanCoreClient\\VulcanCoreClient.csproj|solutionrelative:vulcancoreclient\\vulcancoreclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{101B809E-B510-4FE8-ADF2-03F3C4766B03}|VulcanCoreClient\\VulcanCoreClient.csproj|d:\\tkfsingleplayer\\gitrepo\\vulcancoreclient\\vulcancoreclient\\vulcancoreclient\\patch\\vulcancore_buffdisplaypatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{101B809E-B510-4FE8-ADF2-03F3C4766B03}|VulcanCoreClient\\VulcanCoreClient.csproj|solutionrelative:vulcancoreclient\\patch\\vulcancore_buffdisplaypatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{101B809E-B510-4FE8-ADF2-03F3C4766B03}|VulcanCoreClient\\VulcanCoreClient.csproj|d:\\tkfsingleplayer\\gitrepo\\vulcancoreclient\\vulcancoreclient\\vulcancoreclient\\door_breachsuccessroll_patch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{101B809E-B510-4FE8-ADF2-03F3C4766B03}|VulcanCoreClient\\VulcanCoreClient.csproj|solutionrelative:vulcancoreclient\\door_breachsuccessroll_patch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{101B809E-B510-4FE8-ADF2-03F3C4766B03}|VulcanCoreClient\\VulcanCoreClient.csproj|d:\\tkfsingleplayer\\gitrepo\\vulcancoreclient\\vulcancoreclient\\vulcancoreclient\\patch\\vulcancore_shootingrangetarget_patch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -29,10 +37,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{101B809E-B510-4FE8-ADF2-03F3C4766B03}|VulcanCoreClient\\VulcanCoreClient.csproj|d:\\tkfsingleplayer\\gitrepo\\vulcancoreclient\\vulcancoreclient\\vulcancoreclient\\patch\\vulcancore_unlockoperation_world.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{101B809E-B510-4FE8-ADF2-03F3C4766B03}|VulcanCoreClient\\VulcanCoreClient.csproj|solutionrelative:vulcancoreclient\\patch\\vulcancore_unlockoperation_world.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{101B809E-B510-4FE8-ADF2-03F3C4766B03}|VulcanCoreClient\\VulcanCoreClient.csproj|d:\\tkfsingleplayer\\gitrepo\\vulcancoreclient\\vulcancoreclient\\vulcancoreclient\\patch\\vulcancore_buffdisplaypatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{101B809E-B510-4FE8-ADF2-03F3C4766B03}|VulcanCoreClient\\VulcanCoreClient.csproj|solutionrelative:vulcancoreclient\\patch\\vulcancore_buffdisplaypatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{101B809E-B510-4FE8-ADF2-03F3C4766B03}|VulcanCoreClient\\VulcanCoreClient.csproj|d:\\tkfsingleplayer\\gitrepo\\vulcancoreclient\\vulcancoreclient\\vulcancoreclient\\patch\\vulcancore_attitudedisplaypatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -58,8 +62,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 13,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "VulcanCore_IsActivePatch_Prestige.cs",
+              "DocumentMoniker": "D:\\TKFSinglePlayer\\GitRepo\\VulcanCoreClient\\VulcanCoreClient\\VulcanCoreClient\\Patch\\VulcanCore_IsActivePatch_Prestige.cs",
+              "RelativeDocumentMoniker": "VulcanCoreClient\\Patch\\VulcanCore_IsActivePatch_Prestige.cs",
+              "ToolTip": "D:\\TKFSinglePlayer\\GitRepo\\VulcanCoreClient\\VulcanCoreClient\\VulcanCoreClient\\Patch\\VulcanCore_IsActivePatch_Prestige.cs",
+              "RelativeToolTip": "VulcanCoreClient\\Patch\\VulcanCore_IsActivePatch_Prestige.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAAwBwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-09T05:55:42.735Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
@@ -70,7 +87,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Door_BreachSuccessRoll_Patch.cs",
               "DocumentMoniker": "D:\\TKFSinglePlayer\\GitRepo\\VulcanCoreClient\\VulcanCoreClient\\VulcanCoreClient\\Door_BreachSuccessRoll_Patch.cs",
               "RelativeDocumentMoniker": "VulcanCoreClient\\Door_BreachSuccessRoll_Patch.cs",
@@ -82,7 +99,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "VulcanCore_Utils.cs",
               "DocumentMoniker": "D:\\TKFSinglePlayer\\GitRepo\\VulcanCoreClient\\VulcanCoreClient\\VulcanCoreClient\\Utils\\VulcanCore_Utils.cs",
               "RelativeDocumentMoniker": "VulcanCoreClient\\Utils\\VulcanCore_Utils.cs",
@@ -90,11 +107,12 @@
               "RelativeToolTip": "VulcanCoreClient\\Utils\\VulcanCore_Utils.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-29T05:54:52.429Z"
+              "WhenOpened": "2025-12-29T05:54:52.429Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "VulcanCore_PlayerOwner_GetKey.cs",
               "DocumentMoniker": "D:\\TKFSinglePlayer\\GitRepo\\VulcanCoreClient\\VulcanCoreClient\\VulcanCoreClient\\Patch\\VulcanCore_PlayerOwner_GetKey.cs",
               "RelativeDocumentMoniker": "VulcanCoreClient\\Patch\\VulcanCore_PlayerOwner_GetKey.cs",
@@ -106,7 +124,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "VulcanCore_UnlockOperation_KeyCard.cs",
               "DocumentMoniker": "D:\\TKFSinglePlayer\\GitRepo\\VulcanCoreClient\\VulcanCoreClient\\VulcanCoreClient\\Patch\\VulcanCore_UnlockOperation_KeyCard.cs",
               "RelativeDocumentMoniker": "VulcanCoreClient\\Patch\\VulcanCore_UnlockOperation_KeyCard.cs",
@@ -118,7 +136,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "VulcanCore_UnlockOperation_World.cs",
               "DocumentMoniker": "D:\\TKFSinglePlayer\\GitRepo\\VulcanCoreClient\\VulcanCoreClient\\VulcanCoreClient\\Patch\\VulcanCore_UnlockOperation_World.cs",
               "RelativeDocumentMoniker": "VulcanCoreClient\\Patch\\VulcanCore_UnlockOperation_World.cs",
@@ -130,7 +148,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "VulcanCore_GetSprite_Patch.cs",
               "DocumentMoniker": "D:\\TKFSinglePlayer\\GitRepo\\VulcanCoreClient\\VulcanCoreClient\\VulcanCoreClient\\Patch\\VulcanCore_GetSprite_Patch.cs",
               "RelativeDocumentMoniker": "VulcanCoreClient\\Patch\\VulcanCore_GetSprite_Patch.cs",
@@ -142,7 +160,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "VulcanCore_DogTagPatch.cs",
               "DocumentMoniker": "D:\\TKFSinglePlayer\\GitRepo\\VulcanCoreClient\\VulcanCoreClient\\VulcanCoreClient\\Patch\\VulcanCore_DogTagPatch.cs",
               "RelativeDocumentMoniker": "VulcanCoreClient\\Patch\\VulcanCore_DogTagPatch.cs",
@@ -154,7 +172,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 3,
               "Title": "VulcanCore_BuffDisplayPatch.cs",
               "DocumentMoniker": "D:\\TKFSinglePlayer\\GitRepo\\VulcanCoreClient\\VulcanCoreClient\\VulcanCoreClient\\Patch\\VulcanCore_BuffDisplayPatch.cs",
               "RelativeDocumentMoniker": "VulcanCoreClient\\Patch\\VulcanCore_BuffDisplayPatch.cs",
@@ -162,11 +180,12 @@
               "RelativeToolTip": "VulcanCoreClient\\Patch\\VulcanCore_BuffDisplayPatch.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-29T03:34:58.72Z"
+              "WhenOpened": "2025-12-29T03:34:58.72Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "VulcanCore_AttitudeDisplayPatch.cs",
               "DocumentMoniker": "D:\\TKFSinglePlayer\\GitRepo\\VulcanCoreClient\\VulcanCoreClient\\VulcanCoreClient\\Patch\\VulcanCore_AttitudeDisplayPatch.cs",
               "RelativeDocumentMoniker": "VulcanCoreClient\\Patch\\VulcanCore_AttitudeDisplayPatch.cs",
@@ -178,7 +197,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "VulcanCore_ShootingRangeTarget_Patch.cs",
               "DocumentMoniker": "D:\\TKFSinglePlayer\\GitRepo\\VulcanCoreClient\\VulcanCoreClient\\VulcanCoreClient\\Patch\\VulcanCore_ShootingRangeTarget_Patch.cs",
               "RelativeDocumentMoniker": "VulcanCoreClient\\Patch\\VulcanCore_ShootingRangeTarget_Patch.cs",
@@ -190,7 +209,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "VulcanCoreClient.csproj",
               "DocumentMoniker": "D:\\TKFSinglePlayer\\GitRepo\\VulcanCoreClient\\VulcanCoreClient\\VulcanCoreClient\\VulcanCoreClient.csproj",
               "RelativeDocumentMoniker": "VulcanCoreClient\\VulcanCoreClient.csproj",
@@ -202,13 +221,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "VulcanCoreClient.cs",
               "DocumentMoniker": "D:\\TKFSinglePlayer\\GitRepo\\VulcanCoreClient\\VulcanCoreClient\\VulcanCoreClient\\VulcanCoreClient.cs",
               "RelativeDocumentMoniker": "VulcanCoreClient\\VulcanCoreClient.cs",
               "ToolTip": "D:\\TKFSinglePlayer\\GitRepo\\VulcanCoreClient\\VulcanCoreClient\\VulcanCoreClient\\VulcanCoreClient.cs",
               "RelativeToolTip": "VulcanCoreClient\\VulcanCoreClient.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAIwFEAAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABkAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-12T09:23:58.715Z",
               "EditorCaption": ""
