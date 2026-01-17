@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "D:\\TKFSinglePlayer\\GitRepo\\VulcanCoreClient\\VulcanCoreClient\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{101B809E-B510-4FE8-ADF2-03F3C4766B03}|VulcanCoreClient\\VulcanCoreClient.csproj|d:\\tkfsingleplayer\\gitrepo\\vulcancoreclient\\vulcancoreclient\\vulcancoreclient\\patch\\vulcancore_recievedamagepatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{101B809E-B510-4FE8-ADF2-03F3C4766B03}|VulcanCoreClient\\VulcanCoreClient.csproj|solutionrelative:vulcancoreclient\\patch\\vulcancore_recievedamagepatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{101B809E-B510-4FE8-ADF2-03F3C4766B03}|VulcanCoreClient\\VulcanCoreClient.csproj|d:\\tkfsingleplayer\\gitrepo\\vulcancoreclient\\vulcancoreclient\\vulcancoreclient\\patch\\vulcancore_applydamagepatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{101B809E-B510-4FE8-ADF2-03F3C4766B03}|VulcanCoreClient\\VulcanCoreClient.csproj|solutionrelative:vulcancoreclient\\patch\\vulcancore_applydamagepatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{101B809E-B510-4FE8-ADF2-03F3C4766B03}|VulcanCoreClient\\VulcanCoreClient.csproj|d:\\tkfsingleplayer\\gitrepo\\vulcancoreclient\\vulcancoreclient\\vulcancoreclient\\vulcancoreclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{101B809E-B510-4FE8-ADF2-03F3C4766B03}|VulcanCoreClient\\VulcanCoreClient.csproj|solutionrelative:vulcancoreclient\\vulcancoreclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{101B809E-B510-4FE8-ADF2-03F3C4766B03}|VulcanCoreClient\\VulcanCoreClient.csproj|d:\\tkfsingleplayer\\gitrepo\\vulcancoreclient\\vulcancoreclient\\vulcancoreclient\\patch\\vulcancore_dogtagpatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{101B809E-B510-4FE8-ADF2-03F3C4766B03}|VulcanCoreClient\\VulcanCoreClient.csproj|solutionrelative:vulcancoreclient\\patch\\vulcancore_dogtagpatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{101B809E-B510-4FE8-ADF2-03F3C4766B03}|VulcanCoreClient\\VulcanCoreClient.csproj|d:\\tkfsingleplayer\\gitrepo\\vulcancoreclient\\vulcancoreclient\\vulcancoreclient\\enums\\ecustomdamagetypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{101B809E-B510-4FE8-ADF2-03F3C4766B03}|VulcanCoreClient\\VulcanCoreClient.csproj|solutionrelative:vulcancoreclient\\enums\\ecustomdamagetypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
@@ -32,35 +32,35 @@
               "RelativeDocumentMoniker": "VulcanCoreClient\\VulcanCoreClient.cs",
               "ToolTip": "D:\\TKFSinglePlayer\\GitRepo\\VulcanCoreClient\\VulcanCoreClient\\VulcanCoreClient\\VulcanCoreClient.cs",
               "RelativeToolTip": "VulcanCoreClient\\VulcanCoreClient.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABMAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-17T03:10:14.247Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "VulcanCore_DogTagPatch.cs",
-              "DocumentMoniker": "D:\\TKFSinglePlayer\\GitRepo\\VulcanCoreClient\\VulcanCoreClient\\VulcanCoreClient\\Patch\\VulcanCore_DogTagPatch.cs",
-              "RelativeDocumentMoniker": "VulcanCoreClient\\Patch\\VulcanCore_DogTagPatch.cs",
-              "ToolTip": "D:\\TKFSinglePlayer\\GitRepo\\VulcanCoreClient\\VulcanCoreClient\\VulcanCoreClient\\Patch\\VulcanCore_DogTagPatch.cs",
-              "RelativeToolTip": "VulcanCoreClient\\Patch\\VulcanCore_DogTagPatch.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-17T03:10:10.996Z",
+              "WhenOpened": "2026-01-17T14:12:47.791Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "VulcanCore_RecieveDamagePatch.cs",
-              "DocumentMoniker": "D:\\TKFSinglePlayer\\GitRepo\\VulcanCoreClient\\VulcanCoreClient\\VulcanCoreClient\\Patch\\VulcanCore_RecieveDamagePatch.cs",
-              "RelativeDocumentMoniker": "VulcanCoreClient\\Patch\\VulcanCore_RecieveDamagePatch.cs",
-              "ToolTip": "D:\\TKFSinglePlayer\\GitRepo\\VulcanCoreClient\\VulcanCoreClient\\VulcanCoreClient\\Patch\\VulcanCore_RecieveDamagePatch.cs",
-              "RelativeToolTip": "VulcanCoreClient\\Patch\\VulcanCore_RecieveDamagePatch.cs",
-              "ViewState": "AgIAAL8AAAAAAAAAAAAAANEAAACaAAAAAAAAAA==",
+              "Title": "VulcanCore_ApplyDamagePatch.cs",
+              "DocumentMoniker": "D:\\TKFSinglePlayer\\GitRepo\\VulcanCoreClient\\VulcanCoreClient\\VulcanCoreClient\\Patch\\VulcanCore_ApplyDamagePatch.cs",
+              "RelativeDocumentMoniker": "VulcanCoreClient\\Patch\\VulcanCore_ApplyDamagePatch.cs",
+              "ToolTip": "D:\\TKFSinglePlayer\\GitRepo\\VulcanCoreClient\\VulcanCoreClient\\VulcanCoreClient\\Patch\\VulcanCore_ApplyDamagePatch.cs",
+              "RelativeToolTip": "VulcanCoreClient\\Patch\\VulcanCore_ApplyDamagePatch.cs",
+              "ViewState": "AgIAAAQBAAAAAAAAAADwvxYBAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-16T15:53:18.636Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ECustomDamageTypes.cs",
+              "DocumentMoniker": "D:\\TKFSinglePlayer\\GitRepo\\VulcanCoreClient\\VulcanCoreClient\\VulcanCoreClient\\Enums\\ECustomDamageTypes.cs",
+              "RelativeDocumentMoniker": "VulcanCoreClient\\Enums\\ECustomDamageTypes.cs",
+              "ToolTip": "D:\\TKFSinglePlayer\\GitRepo\\VulcanCoreClient\\VulcanCoreClient\\VulcanCoreClient\\Enums\\ECustomDamageTypes.cs",
+              "RelativeToolTip": "VulcanCoreClient\\Enums\\ECustomDamageTypes.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAuwC0AAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-17T09:02:21.046Z",
               "EditorCaption": ""
             },
             {

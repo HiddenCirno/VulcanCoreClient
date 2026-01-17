@@ -6,6 +6,7 @@ global using ItemTransactionManagerResult = GStruct154<GClass3408>;
 global using LanguageExtend = GClass1522;
 global using ShootingRangeTargetResourceManager = GClass2421;
 global using SkillEffect = GClass1443;
+global using AHCEffect = EFT.HealthSystem.ActiveHealthController.GClass3008;
 using BepInEx;
 using BepInEx.Configuration;
 using BepInEx.Logging;

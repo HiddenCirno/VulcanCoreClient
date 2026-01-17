@@ -1,4 +1,5 @@
 ﻿using BepInEx.Logging;
+using Comfort.Common;
 using Diz.LanguageExtensions;
 using EFT;
 using EFT.Ballistics;
@@ -12,7 +13,6 @@ using System;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using Comfort.Common;
 using UnityEngine;
 using static UnityEngine.TouchScreenKeyboard;
 
@@ -173,12 +173,12 @@ namespace VulcanCore
             }
             else
             {
-                NotificationManagerClass.DisplayMessageNotification(
-                    $"你承受了{damageInfo.Damage}点{damageInfo.DamageType}伤害",
-                    ENotificationDurationType.Default,
-                    ENotificationIconType.Default,
-                    null
-                );
+                //NotificationManagerClass.DisplayMessageNotification(
+                //    $"你承受了{damageInfo.Damage}点{damageInfo.DamageType}伤害",
+                //    ENotificationDurationType.Default,
+                //    ENotificationIconType.Default,
+                //    null
+                //);
                 if (!(AccessTools.Field(__instance.GetType(), "_healthController").GetValue(__instance) as IHealthController).IsAlive)
                 {
                     return false;
@@ -188,6 +188,7 @@ namespace VulcanCore
                 __instance.LastDamagedBodyPart = bodyPartType;
                 IPlayerOwner player = damageInfo.Player;
                 Player player2 = ((player != null) ? __instance.GameWorld.GetAlivePlayerByProfileID(player.iPlayer.ProfileId) : null);
+                float mutiper = 1f; //100%承伤
                 if (__instance.ActiveHealthController != null)
                 {
                     __instance.ActiveHealthController.DoWoundRelapse(damageInfo.Damage, bodyPartType);
@@ -209,17 +210,89 @@ namespace VulcanCore
                         //所以尼基塔nmgb为什么要把氧气罐做成高温气体呢?
                         //真的搞不明白
                         //哦, push了先
-                        var antiexp = GetHighestAmuletWithEffect(__instance.Inventory.AllRealPlayerItems, "爆炸防护");
-                        if (antiexp != null && IsExplosionDamage(damageType))
+                        //哦, 还有进化护盾优先
+                        //要做吗?
+                        //要做吧?
+                        //做吗?
+                        //整.
+                        //不对不对, 应该单独分离一个减伤倍率, 然后根据伤害类型判断, 复合的条件最前, 最终独立计算减伤乘区
+                        //对, 对吗?
+                        //做一下试试先
+                        //主要这护符也不能丢弃....
+                        //var 绝对领域 = GetHighestAmuletWithEffect(__instance.Inventory.AllRealPlayerItems, "绝对领域");
+                        //var 锁血 = GetHighestAmuletWithEffect(__instance.Inventory.AllRealPlayerItems, "死斗锁血不死状态精简版"); //不提供减伤, 这里只是预留
+                        //var 全局减伤 = GetHighestAmuletWithEffect(__instance.Inventory.AllRealPlayerItems, "分子结构强化");
+                        //所有减伤按优先级依次取最高
+                        if (ProtectByAtomicReinforce(damageType))
                         {
-                            float finalDamage = damageInfo.Damage * (Math.Max(1f - antiexp.Value.Value / 100f, 0)); // 使用局部变量来存储最终伤害
+                            var 全局减伤 = GetHighestAmuletWithEffect(__instance.Inventory.AllRealPlayerItems, "分子结构强化");
+                            mutiper = Math.Min(mutiper, 1f - Math.Max(0f, 全局减伤?.Value ?? 0f) / 100f); //全局减伤, 优先级最高, 覆盖所有伤害
+                        }
+                        if (ProtectByATField(damageType))
+                        {
+                            var 绝对领域 = GetHighestAmuletWithEffect(__instance.Inventory.AllRealPlayerItems, "绝对领域");
+                            mutiper = Math.Min(mutiper, 1f - Math.Max(0f, 绝对领域?.Value ?? 0f) / 100f); //刚性盾/绝对领域, 覆盖所有非自身状态(中毒/出血/脱力脱水etc)伤害
+                        }
+                        //其余
+                        if (IsFallDamage(damageType))
+                        {
+                            var 羽落护符 = GetHighestAmuletWithEffect(__instance.Inventory.AllRealPlayerItems, "羽落");
+                            mutiper = Math.Min(mutiper, 1f - Math.Max(0f, 羽落护符?.Value ?? 0f) / 100f); //计算减伤并取最高减伤
+                        }
+                        if (IsFireDamage(damageType))
+                        {
+                            var 烈焰护符 = GetHighestAmuletWithEffect(__instance.Inventory.AllRealPlayerItems, "火焰保护");
+                            mutiper = Math.Min(mutiper, 1f - Math.Max(0f, 烈焰护符?.Value ?? 0f) / 100f); //计算减伤并取最高减伤
+                        }
+                        if (IsProjectileDamage(damageType))
+                        {
+                            var 弹射物护符 = GetHighestAmuletWithEffect(__instance.Inventory.AllRealPlayerItems, "动能护盾");
+                            mutiper = Math.Min(mutiper, 1f - Math.Max(0f, 弹射物护符?.Value ?? 0f) / 100f); //计算减伤并取最高减伤
+                        }
+                        if (IsSniperDamage(damageType))
+                        {
+                            var 狙击护符 = GetHighestAmuletWithEffect(__instance.Inventory.AllRealPlayerItems, "无上神力");
+                            mutiper = Math.Min(mutiper, 1f - Math.Max(0f, 狙击护符?.Value ?? 0f) / 100f); //计算减伤并取最高减伤
+                        }
+                        if (IsBleedingDamage(damageType))
+                        {
+                            var 鲜血护符 = GetHighestAmuletWithEffect(__instance.Inventory.AllRealPlayerItems, "鲜血仪式");
+                            mutiper = Math.Min(mutiper, 1f - Math.Max(0f, 鲜血护符?.Value ?? 0f) / 100f); //计算减伤并取最高减伤
+                        }
+                        if (IsLifeDamage(damageType))
+                        {
+                            var 生命护符 = GetHighestAmuletWithEffect(__instance.Inventory.AllRealPlayerItems, "生命之诗");
+                            mutiper = Math.Min(mutiper, 1f - Math.Max(0f, 生命护符?.Value ?? 0f) / 100f); //计算减伤并取最高减伤
+                        }
+                        if (IsExplosionDamage(damageType))
+                        {
+                            var 爆破护符 = GetHighestAmuletWithEffect(__instance.Inventory.AllRealPlayerItems, "爆破专家");
+                            mutiper = Math.Min(mutiper, 1f - Math.Max(0f, 爆破护符?.Value ?? 0f) / 100f); //计算减伤并取最高减伤
+                        }
+                        if (IsPosionDamage(damageType))
+                        {
+                            var 毒素护符 = GetHighestAmuletWithEffect(__instance.Inventory.AllRealPlayerItems, "慈父祝福");
+                            mutiper = Math.Min(mutiper, 1f - Math.Max(0f, 毒素护符?.Value ?? 0f) / 100f); //计算减伤并取最高减伤
+                        }
+                        //完成最终计算
+                        float finalDamage = damageInfo.Damage * Math.Max(0f, mutiper); // 使用局部变量来存储最终伤害
+                        //Console.WriteLine($"你承受了{finalDamage}点{damageInfo.DamageType}伤害, 减免倍率: ${mutiper}");
+                        value = (damageInfo.DidBodyDamage = __instance.ActiveHealthController.ApplyDamage(bodyPartType, finalDamage, damageInfo));
+                        /*旧逻辑存档
+                        var 爆炸防护 = GetHighestAmuletWithEffect(__instance.Inventory.AllRealPlayerItems, "爆炸防护");
+                        var 绝对领域 = GetHighestAmuletWithEffect(__instance.Inventory.AllRealPlayerItems, "绝对领域");
+                        var 火焰保护 = GetHighestAmuletWithEffect(__instance.Inventory.AllRealPlayerItems, "火焰保护");
+                        if (火焰保护 != null && IsFireDamage(damageType))
+                        {
+                            float finalDamage = damageInfo.Damage * (Math.Max(1f - 火焰保护.Value.Value / 100f, 0)); // 使用局部变量来存储最终伤害
                             value = (damageInfo.DidBodyDamage = __instance.ActiveHealthController.ApplyDamage(bodyPartType, finalDamage, damageInfo));
-                            //Console.WriteLine($"伤害防护成功, 减免倍率为{Math.Min(100, antiexp.Value.Value)}%, 最终实际承伤为{finalDamage}点, 伤害类型为{damageInfo.DamageType}");
+                            Console.WriteLine($"伤害防护成功, 减免倍率为{Math.Min(100, 火焰保护.Value.Value)}%, 最终实际承伤为{finalDamage}点, 伤害类型为{damageInfo.DamageType}");
                         }
                         else
                         {
                             value = (damageInfo.DidBodyDamage = __instance.ActiveHealthController.ApplyDamage(bodyPartType, damageInfo.Damage, damageInfo));
                         }
+                        */
                     }
                     else
                     {
@@ -238,7 +311,11 @@ namespace VulcanCore
 
                 player2?.Loyalty.MarkAsAggressor(__instance);
                 __instance.ManageAggressor(damageInfo, bodyPartType, colliderType);
-                __instance.ApplyHitDebuff(damageInfo.Damage, damageInfo.StaminaBurnRate * damageInfo.Damage, bodyPartType, damageType);
+                var nodamage = __instance.IsYourPlayer && mutiper <= 0f;
+                if (!nodamage)
+                {
+                    __instance.ApplyHitDebuff(damageInfo.Damage, damageInfo.StaminaBurnRate * damageInfo.Damage, bodyPartType, damageType);
+                }
                 if (!GClass3051.IsWeaponInduced(damageType))
                 {
                     __instance.ReceiveDamage(damageInfo.Damage, bodyPartType, damageType, 0f, MaterialType.None);
@@ -251,21 +328,78 @@ namespace VulcanCore
                 {
                     Singleton<BotEventHandler>.Instance.BeingHitAction(damageInfo, __instance);
                 }
-
-                if (player != null && !__instance.HealthController.IsAlive && Singleton<BotEventHandler>.Instantiated)
+                var 锁血 = GetHighestAmuletWithEffect(__instance.Inventory.AllRealPlayerItems, "死斗锁血不死状态精简版"); //不提供减伤, 这里只是预留
+                if (player != null && !__instance.HealthController.IsAlive && Singleton<BotEventHandler>.Instantiated && 锁血 == null)
                 {
                     Singleton<BotEventHandler>.Instance.Kill(player.iPlayer, __instance.GetPlayer);
                 }
                 return false;
             }
         }
+        public static bool IsFallDamage(EDamageType damageType)
+        {
+            var type = (ECustomDamageType)((int)damageType);
+            return type == ECustomDamageType.坠落;
+        }
+        public static bool IsSniperDamage(EDamageType damageType)
+        {
+            var type = (ECustomDamageType)((int)damageType);
+            return type == ECustomDamageType.狙击手;
+        }
         public static bool IsExplosionDamage(EDamageType damageType)
         {
-            // 自定义一个伤害类型组合，例如 Explosion, ThermobaricExplosion, Landmine 和 GrenadeFragment
-            EDamageType category = EDamageType.Explosion | EDamageType.ThermobaricExplosion | EDamageType.Landmine | EDamageType.GrenadeFragment | EDamageType.Artillery;
+            var type = (ECustomDamageType)(int)damageType;
+            ECustomDamageType category = ECustomDamageType.爆炸 | ECustomDamageType.爆炸物 | ECustomDamageType.温压爆炸 | ECustomDamageType.地雷 | ECustomDamageType.迫击炮轰炸;
 
-            // 判断传入的 damageType 是否包含上述任意一个伤害类型
-            return (damageType & category) != 0;
+            return (type & category) != 0;
+        }
+        public static bool IsFireDamage(EDamageType damageType)
+        {
+            var type = (ECustomDamageType)(int)damageType;
+            ECustomDamageType category = ECustomDamageType.火焰 | ECustomDamageType.高温气体 | ECustomDamageType.温压爆炸;
+
+            return (type & category) != 0;
+        }
+        public static bool IsPosionDamage(EDamageType damageType)
+        {
+            var type = (ECustomDamageType)((int)damageType);
+            ECustomDamageType category = ECustomDamageType.中毒 | ECustomDamageType.致命毒素;
+
+            return (type & category) != 0;
+        }
+        public static bool IsLifeDamage(EDamageType damageType)
+        {
+            var type = (ECustomDamageType)((int)damageType);
+            ECustomDamageType category = ECustomDamageType.小出血 | ECustomDamageType.大出血 | ECustomDamageType.脱水 | ECustomDamageType.力竭 | ECustomDamageType.激素副作用;
+
+            return (type & category) != 0;
+        }
+        public static bool IsBleedingDamage(EDamageType damageType)
+        {
+            var type = (ECustomDamageType)((int)damageType);
+            ECustomDamageType category = ECustomDamageType.小出血 | ECustomDamageType.大出血;
+
+            return (type & category) != 0;
+        }
+        public static bool IsProjectileDamage(EDamageType damageType)
+        {
+            var type = (ECustomDamageType)((int)damageType);
+            ECustomDamageType category = ECustomDamageType.子弹 | ECustomDamageType.钝伤 | ECustomDamageType.狙击手;
+
+            return (type & category) != 0;
+        }
+        public static bool ProtectByATField(EDamageType damageType)
+        {
+            var type = (ECustomDamageType)((int)damageType);
+            ECustomDamageType category = (ECustomDamageType)(~(ECustomDamageType.激素副作用 | ECustomDamageType.药物副作用 | ECustomDamageType.脱水 | ECustomDamageType.力竭 | ECustomDamageType.小出血 | ECustomDamageType.大出血 | ECustomDamageType.致命毒素 | ECustomDamageType.中毒));
+
+            return (type & category) != 0;
+        }
+        public static bool ProtectByAtomicReinforce(EDamageType damageType)
+        {
+            var type = (ECustomDamageType)((int)damageType);
+
+            return type != 0;  // 直接判断
         }
         public static KeyValuePair<string, float>? GetHighestAmuletWithEffect(IEnumerable<Item> inventory, string effectKeyword)
         {
@@ -274,7 +408,7 @@ namespace VulcanCore
                 .Select(x =>
                 {
                     var desc = LocaleManagerClass.LocaleManagerClass.method_4(x.Template._id + " Description");
-                    if (desc != null && desc.Contains("特殊效果: 护符") && desc.Contains($"护符效果: {effectKeyword}"))
+                    if (desc != null && desc.Contains($"特殊效果: {effectKeyword}"))//if (desc != null && desc.Contains("特殊效果: 护符") && desc.Contains($"护符效果: {effectKeyword}"))
                     {
                         return new KeyValuePair<string, string>(x.Template._id, desc); // 返回 Template._id 和描述
                     }
@@ -309,4 +443,84 @@ namespace VulcanCore
             return null;
         }
     }
+    [HarmonyPatch(typeof(ActiveHealthController), "Kill")]
+    public static class VulcanCore_AHCKillPatch
+    {
+        public static bool Prefix(ActiveHealthController __instance, EDamageType damageType)
+        {
+            if (!__instance.Player.IsYourPlayer)
+            {
+                return true;
+            }
+            else
+            {
+                //Console.WriteLine("你死了!");
+                var 锁血 = VulcanCore_PlayerApplyDamageInfoPatch.GetHighestAmuletWithEffect(__instance.Player.Inventory.AllRealPlayerItems, "死斗锁血不死状态精简版");
+                if (锁血 == null)
+                {
+                    //Console.WriteLine("无法找到锁血状态");
+                }
+                if (__instance.IsAlive && 锁血 == null)
+                {
+                    __instance.IsAlive = false;
+                    __instance.method_35(damageType);
+                    if (AccessTools.Field(__instance.GetType(), "DiedEvent") is FieldInfo field)
+                    {
+                        // 获取事件背后的委托
+                        Action<EDamageType> eventDelegate = (Action<EDamageType>)field.GetValue(__instance);
+                        if (eventDelegate != null)
+                        {                                                                   // 触发事件
+                            eventDelegate?.Invoke(damageType);
+                        }
+                    }
+                    //DiedEvent?.Invoke(damageType);
+                }
+                return false;
+            }
+        }
+    }
+    [HarmonyPatch(typeof(ActiveHealthController), "DestroyBodyPart")]
+    public static class VulcanCore_AHCDestroyBodyPartPatch
+    {
+        public static bool Prefix(ActiveHealthController __instance, EBodyPart bodyPart, EDamageType damageType)
+        {
+            if (!__instance.Player.IsYourPlayer)
+            {
+                return true;
+            }
+            else
+            {
+                //Console.WriteLine("你死了!");
+                var 锁血 = VulcanCore_PlayerApplyDamageInfoPatch.GetHighestAmuletWithEffect(__instance.Player.Inventory.AllRealPlayerItems, "死斗锁血不死状态精简版");
+                if (锁血 == null)
+                {
+                    //Console.WriteLine("无法找到锁血状态");
+                }
+                if (__instance.IsAlive && 锁血 == null)
+                {
+                    GClass3009<AHCEffect>.BodyPartState bodyPartState = __instance.Dictionary_0[bodyPart];
+                    if (!bodyPartState.IsDestroyed)
+                    {
+                        bodyPartState.IsDestroyed = true;
+                        __instance.method_44(bodyPart, damageType);
+                        //BodyPartDestroyedEvent?.Invoke(bodyPart, damageType);
+                        if (AccessTools.Field(__instance.GetType(), "BodyPartDestroyedEvent") is FieldInfo field)
+                        {
+                            // 获取事件背后的委托
+                            Action<EBodyPart, EDamageType> eventDelegate = (Action<EBodyPart, EDamageType>)field.GetValue(__instance);
+                            if (eventDelegate != null)
+                            {                                                                   // 触发事件
+                                eventDelegate?.Invoke(bodyPart, damageType);
+                            }
+                        }
+                    }
+
+                    __instance.method_24(bodyPart, damageType);
+                    //DiedEvent?.Invoke(damageType);
+                }
+                return false;
+            }
+        }
+    }
 }
+    
