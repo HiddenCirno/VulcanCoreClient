@@ -370,7 +370,7 @@ namespace VulcanCore
         public static bool IsLifeDamage(EDamageType damageType)
         {
             var type = (ECustomDamageType)((int)damageType);
-            ECustomDamageType category = ECustomDamageType.小出血 | ECustomDamageType.大出血 | ECustomDamageType.脱水 | ECustomDamageType.力竭 | ECustomDamageType.激素副作用;
+            ECustomDamageType category = ECustomDamageType.小出血 | ECustomDamageType.大出血 | ECustomDamageType.脱水 | ECustomDamageType.力竭 | ECustomDamageType.激素副作用 | ECustomDamageType.药物副作用 | ECustomDamageType.致命毒素 | ECustomDamageType.中毒;
 
             return (type & category) != 0;
         }
